@@ -2,11 +2,13 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use app\Http\Controllers\Api\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
+use app\Http\Controllers\Api\Auth\AuthController;
+use App\Http\Controllers\Api\Auth\SessionController;
 use app\Http\Controllers\Api\Auth\ActivationController;
 use App\Http\Controllers\Api\Users\Account\AccountController;
-use App\Http\Controllers\Api\Auth\SessionController;
+use App\Http\Controllers\Api\Role\RoleController;
+use App\Http\Controllers\Api\Permission\PermissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,10 +38,33 @@ Route::prefix('v1')->group(function () {
 
 
     Route::middleware(('auth:api'))->group(function(){
-        Route::post('auth/validate', [AuthController::class, 'validateToken']);
+
+        Route::get('/dale', function(){
+            return ['doly'=> true];
+        });
+
+        //logout
         Route::post('auth/logout', [SessionController::class, 'logout']);
 
+        //Roles
+        Route::get('/campos-permissoes', [RoleController::class, 'permissions']);
+        Route::prefix('/grupos')->group(function () {
+            Route::get('/', [RoleController::class, 'index']);
+            Route::get('{id}', [RoleController::class, 'show']);
+            Route::post('/', [RoleController::class, 'store']);
+            Route::put('/{id}', [RoleController::class, 'update']);
+            Route::delete('/{id}', [RoleController::class, 'destroy']);
+        });
 
+        //Permission
+        Route::get('/campos-grupos', [PermissionController::class, 'roles']);
+        Route::prefix('/permissoes')->group(function () {
+            Route::get('/', [PermissionController::class, 'index']);
+            Route::get('/{id}', [PermissionController::class, 'show']);
+            Route::post('/', [PermissionController::class, 'store']); 
+            Route::put('/{id}', [PermissionController::class, 'update']);
+            Route::delete('/{id}', [PermissionController::class, 'destroy']);
+        });
     });
 
 });
