@@ -38,24 +38,6 @@ Route::prefix('v1')->group(function () {
 
     // Route::post('/primeiro-acesso', [ActivationController::class, 'store']);
 
-    //Faq
-    Route::prefix('/perguntas')->group(function () {
-        Route::get('/', [FaqController::class, 'index']);
-        Route::get('/{uuid}', [FaqController::class, 'show']);
-        Route::post('/', [FaqController::class, 'store']);
-        Route::put('/{uuid}', [FaqController::class, 'update']);
-        Route::delete('/{uuid}', [FaqController::class, 'destroy']);
-    });
-
-    //Faq Category
-    Route::prefix('/categorias-faq')->group(function () {
-        Route::get('/', [FaqCategoryController::class, 'index']);
-        Route::get('/{uuid}', [FaqCategoryController::class, 'show']);
-        Route::post('/', [FaqCategoryController::class, 'store']);
-        Route::put('/{uuid}', [FaqCategoryController::class, 'update']);
-        Route::delete('/{uuid}', [FaqCategoryController::class, 'destroy']);
-    });
-
     Route::middleware(('auth:api'))->group(function () {
 
         Route::get('/dale', function () {

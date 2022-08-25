@@ -18,10 +18,10 @@ class FaqCategoryController extends BaseController
 
     public function __construct(FaqCategory $categories)
     {
-        $this->middleware('permission:view_faqs_submodules', ['only' => ['index']]);
-        $this->middleware('permission:add_faqs_submodules', ['only' => ['store',]]);
-        $this->middleware('permission:edit_faqs_submodules', ['only' => ['update']]);
-        $this->middleware('permission:delete_faqs_submodules', ['only' => ['destroy']]);
+        // $this->middleware('permission:view_faqs_submodules', ['only' => ['index']]);
+        // $this->middleware('permission:add_faqs_submodules', ['only' => ['store',]]);
+        // $this->middleware('permission:edit_faqs_submodules', ['only' => ['update']]);
+        // $this->middleware('permission:delete_faqs_submodules', ['only' => ['destroy']]);
 
         $this->categories =  $categories;
     }

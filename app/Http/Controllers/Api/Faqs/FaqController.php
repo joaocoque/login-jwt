@@ -19,10 +19,10 @@ class FaqController extends BaseController
 
     public function __construct(Faq $faqs, faqCategory $categories)
     {
-        $this->middleware('permission:view_faqs', ['only' => ['index']]);
-        $this->middleware('permission:add_faqs', ['only' => [ 'store']]);
-        $this->middleware('permission:edit_faqs', ['only' => ['update']]);
-        $this->middleware('permission:delete_faqs', ['only' => ['destroy']]);
+        // $this->middleware('permission:view_faqs', ['only' => ['index']]);
+        // $this->middleware('permission:add_faqs', ['only' => [ 'store']]);
+        // $this->middleware('permission:edit_faqs', ['only' => ['update']]);
+        // $this->middleware('permission:delete_faqs', ['only' => ['destroy']]);
 
         $this->faqs = $faqs;
         $this->categories = $categories;
