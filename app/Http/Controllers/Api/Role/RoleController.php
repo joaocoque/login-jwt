@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Role;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\BaseController;
 use Illuminate\Http\Request;
 use App\Traits\NotFound\NotFoundResponseTrait;
 use App\Http\Resources\Api\V1\Roles\RoleResource;
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Auth\Role;
 use App\Models\Auth\Permission;
 
-class RoleController extends Controller
+class RoleController extends BaseController
 {
     use NotFoundResponseTrait;
 

@@ -33,6 +33,18 @@ class PermissionTableSeeder extends Seeder
             ['name' => 'add_roles', 'details' => 'Grupos [add]', 'guard' => 'api'],
             ['name' => 'edit_roles', 'details' => 'Grupos [edit]', 'guard' => 'api'],
             ['name' => 'delete_roles', 'details' => 'Grupos [delete]', 'guard' => 'api'],
+
+            //Faqs
+            ['name' => 'view_faqs', 'details' => 'Perguntas [view]', 'guard' => 'api'],
+            ['name' => 'add_faqs', 'details' => 'Perguntas [add]', 'guard' => 'api'],
+            ['name' => 'edit_faqs', 'details' => 'Perguntas [edit]', 'guard' => 'api'],
+            ['name' => 'delete_faqs', 'details' => 'Perguntas [delete]', 'guard' => 'api'],
+
+            //Faq Category
+            ['name' => 'view_faqs_submodules', 'details' => 'Perguntas [view]', 'guard' => 'api'],
+            ['name' => 'add_faqs_submodules', 'details' => 'Perguntas [add]', 'guard' => 'api'],
+            ['name' => 'edit_faqs_submodules', 'details' => 'Perguntas [edit]', 'guard' => 'api'],
+            ['name' => 'delete_faqs_submodules', 'details' => 'Perguntas [delete]', 'guard' => 'api'],
         ];
 
         foreach ($permissions as $permission) {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Permission;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\BaseController;
 use Illuminate\Http\Request;
 use App\Models\Auth\Role;
 use App\Models\Auth\Permission;
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\Api\Permissions\StorePermissionRequest;
 use App\Http\Requests\Api\Permissions\UpdatePermissionRequest;
 
-class PermissionController extends Controller
+class PermissionController extends BaseController
 {
     private $permissions;
     private $roles;

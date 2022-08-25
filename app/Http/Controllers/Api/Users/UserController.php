@@ -17,17 +17,7 @@ class UserController extends Controller
     {
         $this->users = $users;
     }
-
-    // public function index(Request $request){
-    //     $query = $this->users;
-
-    //     $results = $query->paginate(10);
-
-    //     return ($results->count() == 0) ?
-    //         $this->notFoundResponse() :
-    //         UsersResource::collection($results);
-    // }
-
+    
     public function store(StoreUserRequest $request)
     {
         DB::beginTransaction();

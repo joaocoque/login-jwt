@@ -9,6 +9,8 @@ use app\Http\Controllers\Api\Auth\ActivationController;
 use App\Http\Controllers\Api\Users\Account\AccountController;
 use App\Http\Controllers\Api\Role\RoleController;
 use App\Http\Controllers\Api\Permission\PermissionController;
+use App\Http\Controllers\Api\Faqs\FaqCategoryController;
+use App\Http\Controllers\Api\Faqs\FaqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,10 +63,28 @@ Route::prefix('v1')->group(function () {
         Route::prefix('/permissoes')->group(function () {
             Route::get('/', [PermissionController::class, 'index']);
             Route::get('/{id}', [PermissionController::class, 'show']);
-            Route::post('/', [PermissionController::class, 'store']); 
+            Route::post('/', [PermissionController::class, 'store']);
             Route::put('/{id}', [PermissionController::class, 'update']);
             Route::delete('/{id}', [PermissionController::class, 'destroy']);
         });
     });
+
+        //Faq
+        Route::prefix('/perguntas')->group(function () {
+            Route::get('/', [FaqController::class, 'index']);
+            Route::get('/{uuid}', [FaqController::class, 'show']);
+            Route::post('/', [FaqController::class, 'store']);
+            Route::put('/{uuid}', [FaqController::class, 'update']);
+            Route::delete('/{uuid}', [FaqController::class, 'destroy']);
+        });
+
+        //Faq Category
+        Route::prefix('/categorias-faq')->group(function () {
+            Route::get('/', [FaqCategoryController::class, 'index']);
+            Route::get('/{uuid}', [FaqCategoryController::class, 'show']);
+            Route::post('/', [FaqCategoryController::class, 'store']);
+            Route::put('/{uuid}', [FaqCategoryController::class, 'update']);
+            Route::delete('/{uuid}', [FaqCategoryController::class, 'destroy']);
+        });
 
 });
